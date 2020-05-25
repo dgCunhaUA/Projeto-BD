@@ -15,10 +15,14 @@ namespace SAA_Project
     public partial class FormAluno : Form
     {
         private int currentAluno;
+        private int currentAluno2;
 
         public FormAluno()
         {
             InitializeComponent();
+
+            N_TURMAS();
+
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -61,24 +65,6 @@ namespace SAA_Project
                 currentAluno = listAluno.SelectedIndex;
                 ShowAluno();
             }
-        }
-
-
-        public void ShowAluno()
-        {
-            if (listAluno.Items.Count == 0 | currentAluno < 0)
-                return;
-            Aluno aluno = new Aluno();
-            aluno = (Aluno)listAluno.Items[currentAluno];
-            nomeAluno.Text = aluno.Nome.ToString();
-            nmecAluno.Text = aluno.NMEC;
-            emailAluno.Text = aluno.Email;
-            regimeEstudoAluno.Text = aluno.RegimeEstudo;
-            idHorarioAluno.Text = aluno.ID_Horario;
-            idBibliotecaAluno.Text = aluno.ID_Biblioteca;
-            idCursoAluno.Text = aluno.ID_Curso;
-            nmecTutorAluno.Text = aluno.NMEC_Tutor;
-            idadeAluno.Text = aluno.Idade;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -320,10 +306,17 @@ namespace SAA_Project
 
         private void listBoxAlunoTurma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listAluno.SelectedIndex >= 0)
+            if (listBoxAluno.SelectedIndex >= 0)
             {
-                currentAluno = listBoxAluno.SelectedIndex;
-                ShowAluno();
+                foreach (Control ctrl in Controls)
+                {
+                    if (ctrl is TextBoxBase)
+                    {
+                        ctrl.Text = String.Empty;
+                    }
+                }
+                currentAluno2 = listBoxAluno.SelectedIndex;
+                ShowAluno_Filtrado();
             }
         }
 
@@ -339,20 +332,20 @@ namespace SAA_Project
 
             cmd.CommandText = "EXEC SAA.ALUNOS_DA_TURMA @ID_Turma";
             cmd.Parameters.Clear();
-            MessageBox.Show(nomeAluno.Text);
             cmd.Parameters.AddWithValue("@ID_Turma", Int32.Parse((String)comboBoxTurma.SelectedItem));
 
             //cmd.ExecuteNonQuery();
 
 
             SqlDataReader reader = cmd.ExecuteReader();
-            listAluno.Items.Clear();
+            listBoxAluno.Items.Clear();
 
             while (reader.Read())
             {
 
                 Aluno A = new Aluno();
                 A.Nome = reader["Nome"].ToString();
+                A.ID_Curso = reader["ID_Curso"].ToString();
                 A.NMEC = reader["NMEC"].ToString();
                 A.Email = reader["Email"].ToString();
                 A.RegimeEstudo = reader["RegimeEstudo"].ToString();
@@ -362,12 +355,59 @@ namespace SAA_Project
                 A.NMEC_Tutor = reader["NMEC_Tutor"].ToString();
                 A.Idade = reader["Idade"].ToString();
 
-                listAluno.Items.Add(A);
+                listBoxAluno.Items.Add(A);
             }
             BDconnection.getConnection().Close();
 
-            currentAluno = 0;
-            ShowAluno();
+            currentAluno2 = 0;
+            ShowAluno_Filtrado();
+        }
+
+        public void ShowAluno()
+        {
+            if (listAluno.Items.Count == 0 | currentAluno < 0)
+                return;
+            Aluno aluno = new Aluno();
+            aluno = (Aluno)listAluno.Items[currentAluno];
+            nomeAluno.Text = aluno.Nome.ToString();
+            nmecAluno.Text = aluno.NMEC;
+            emailAluno.Text = aluno.Email;
+            regimeEstudoAluno.Text = aluno.RegimeEstudo;
+            idHorarioAluno.Text = aluno.ID_Horario;
+            idBibliotecaAluno.Text = aluno.ID_Biblioteca;
+            idCursoAluno.Text = aluno.ID_Curso;
+            nmecTutorAluno.Text = aluno.NMEC_Tutor;
+            idadeAluno.Text = aluno.Idade;
+        }
+
+        public void ShowAluno_Filtrado()
+        {
+            if (listBoxAluno.Items.Count == 0 | currentAluno2 < 0)
+                return;
+            Aluno aluno2 = new Aluno();
+            aluno2 = (Aluno)listBoxAluno.Items[currentAluno2];
+            nomeAluno.Text = aluno2.Nome.ToString();
+            nmecAluno.Text = aluno2.NMEC;
+            emailAluno.Text = aluno2.Email;
+            regimeEstudoAluno.Text = aluno2.RegimeEstudo;
+            idHorarioAluno.Text = aluno2.ID_Horario;
+            idBibliotecaAluno.Text = aluno2.ID_Biblioteca;
+            idCursoAluno.Text = aluno2.ID_Curso;
+            nmecTutorAluno.Text = aluno2.NMEC_Tutor;
+            idadeAluno.Text = aluno2.Idade;
+        }
+
+        private void N_TURMAS()
+        {
+            if (!BDconnection.verifySGBDConnection())
+                return;
+            SqlCommand cmd = new SqlCommand("EXEC N_TURMAS", BDconnection.getConnection());
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                comboBoxTurma.Items.Add(reader["ID_TURMA"].ToString());
+            }
+            BDconnection.getConnection().Close();
         }
     }
 }

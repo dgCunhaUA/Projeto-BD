@@ -218,9 +218,6 @@
             // comboBoxTurma
             // 
             this.comboBoxTurma.FormattingEnabled = true;
-            this.comboBoxTurma.Items.AddRange(new object[] {
-            "1",
-            "3"});
             this.comboBoxTurma.Location = new System.Drawing.Point(443, 357);
             this.comboBoxTurma.Name = "comboBoxTurma";
             this.comboBoxTurma.Size = new System.Drawing.Size(36, 21);
