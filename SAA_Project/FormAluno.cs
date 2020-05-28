@@ -21,8 +21,6 @@ namespace SAA_Project
         {
             InitializeComponent();
 
-            N_TURMAS();
-
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -87,6 +85,8 @@ namespace SAA_Project
             updateBtn.Visible = false;
             confirmBtn2.Visible = false;
             limparBtn.Visible = true;
+            eliminarBtn.Visible = false;
+
 
 
             nomeAluno.ReadOnly = false;
@@ -116,30 +116,38 @@ namespace SAA_Project
             {
                 MessageBox.Show("Todos os campos devem estar preenchidos");
             }
-
-            cmd.CommandText = "EXEC SAA.updateAluno @Nome, @NMEC, @Email, @RegimeEstudo, @ID_Horario, @ID_Biblioteca, @NMEC_TUTOR, @Idade, @PasswordAccount, @ID_Curso";
-            cmd.Parameters.Clear();
-            MessageBox.Show(nomeAluno.Text);
-            cmd.Parameters.AddWithValue("@Nome", nomeAluno.Text);
-            cmd.Parameters.AddWithValue("@NMEC", Int32.Parse(nmecAluno.Text));
-            cmd.Parameters.AddWithValue("@Email", emailAluno.Text);
-            cmd.Parameters.AddWithValue("@RegimeEstudo", (String)regimeEstudoAluno.SelectedItem);
-            cmd.Parameters.AddWithValue("@ID_Horario", Int32.Parse(idHorarioAluno.Text));
-            cmd.Parameters.AddWithValue("@ID_Biblioteca", Int32.Parse(idBibliotecaAluno.Text));
-            if (!String.IsNullOrEmpty(nmecTutorAluno.Text))
-            {
-                cmd.Parameters.AddWithValue("@NMEC_TUTOR", Int32.Parse(nmecTutorAluno.Text));
-            }
             else
             {
-                cmd.Parameters.AddWithValue("@NMEC_TUTOR", DBNull.Value);
+                try
+                {
+                    cmd.CommandText = "EXEC SAA.updateAluno @Nome, @NMEC, @Email, @RegimeEstudo, @ID_Horario, @ID_Biblioteca, @NMEC_TUTOR, @Idade, @PasswordAccount, @ID_Curso";
+                    cmd.Parameters.Clear();
+                    MessageBox.Show(nomeAluno.Text);
+                    cmd.Parameters.AddWithValue("@Nome", nomeAluno.Text);
+                    cmd.Parameters.AddWithValue("@NMEC", Int32.Parse(nmecAluno.Text));
+                    cmd.Parameters.AddWithValue("@Email", emailAluno.Text);
+                    cmd.Parameters.AddWithValue("@RegimeEstudo", (String)regimeEstudoAluno.SelectedItem);
+                    cmd.Parameters.AddWithValue("@ID_Horario", Int32.Parse(idHorarioAluno.Text));
+                    cmd.Parameters.AddWithValue("@ID_Biblioteca", Int32.Parse(idBibliotecaAluno.Text));
+                    if (!String.IsNullOrEmpty(nmecTutorAluno.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@NMEC_TUTOR", Int32.Parse(nmecTutorAluno.Text));
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NMEC_TUTOR", DBNull.Value);
+                    }
+                    cmd.Parameters.AddWithValue("@Idade", Int32.Parse(idadeAluno.Text));
+                    cmd.Parameters.AddWithValue("@PasswordAccount", passAluno.Text);
+                    cmd.Parameters.AddWithValue("@ID_Curso", Int32.Parse(idCursoAluno.Text));
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    DisplaySqlErrors(ex);
+                }
             }
-            cmd.Parameters.AddWithValue("@Idade", Int32.Parse(idadeAluno.Text));
-            cmd.Parameters.AddWithValue("@PasswordAccount", passAluno.Text);
-            cmd.Parameters.AddWithValue("@ID_Curso", Int32.Parse(idCursoAluno.Text));
-
-
-            cmd.ExecuteNonQuery();
 
             FormAluno_Load(sender, e);
             ShowAluno();
@@ -150,6 +158,8 @@ namespace SAA_Project
             adicionarBtn.Visible = true;
             updateBtn.Visible = true;
             limparBtn.Visible = false;
+            eliminarBtn.Visible = true;
+
 
             nomeAluno.ReadOnly = true;
             emailAluno.ReadOnly = true;
@@ -171,7 +181,16 @@ namespace SAA_Project
             updateBtn.Visible = true;
             cancelarBtn.Visible = false;
             limparBtn.Visible = false;
+            eliminarBtn.Visible = true;
 
+
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    ctrl.Text = String.Empty;
+                }
+            }
 
             nomeAluno.ReadOnly = true;
             nmecAluno.ReadOnly = true;
@@ -201,51 +220,60 @@ namespace SAA_Project
             {
                 MessageBox.Show("Todos os campos devem estar preenchidos");
             }
-
-            cmd.CommandText = "EXEC SAA.addAluno @Nome, @Email, @RegimeEstudo, @ID_Horario, @ID_Biblioteca, @NMEC_TUTOR, @Idade, @PasswordAccount, @ID_Curso";
-            cmd.Parameters.Clear();
-            MessageBox.Show(nomeAluno.Text);
-            cmd.Parameters.AddWithValue("@Nome", nomeAluno.Text);
-            cmd.Parameters.AddWithValue("@Email", emailAluno.Text);
-            cmd.Parameters.AddWithValue("@RegimeEstudo", regimeEstudoAluno.SelectedItem);
-            cmd.Parameters.AddWithValue("@ID_Horario", Int32.Parse(idHorarioAluno.Text));
-            cmd.Parameters.AddWithValue("@ID_Biblioteca", Int32.Parse(idBibliotecaAluno.Text));
-            if (!String.IsNullOrEmpty(nmecTutorAluno.Text))
-            {
-                cmd.Parameters.AddWithValue("@NMEC_TUTOR", Int32.Parse(nmecTutorAluno.Text));
-            }
             else
             {
-                cmd.Parameters.AddWithValue("@NMEC_TUTOR", DBNull.Value);
+                try
+                {
+                    cmd.CommandText = "EXEC SAA.addAluno @Nome, @Email, @RegimeEstudo, @ID_Horario, @ID_Biblioteca, @NMEC_TUTOR, @Idade, @PasswordAccount, @ID_Curso";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Nome", nomeAluno.Text);
+                    cmd.Parameters.AddWithValue("@Email", emailAluno.Text);
+                    cmd.Parameters.AddWithValue("@RegimeEstudo", regimeEstudoAluno.SelectedItem);
+                    cmd.Parameters.AddWithValue("@ID_Horario", Int32.Parse(idHorarioAluno.Text));
+                    cmd.Parameters.AddWithValue("@ID_Biblioteca", Int32.Parse(idBibliotecaAluno.Text));
+                    if (!String.IsNullOrEmpty(nmecTutorAluno.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@NMEC_TUTOR", Int32.Parse(nmecTutorAluno.Text));
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@NMEC_TUTOR", DBNull.Value);
+                    }
+                    cmd.Parameters.AddWithValue("@Idade", Int32.Parse(idadeAluno.Text));
+                    cmd.Parameters.AddWithValue("@PasswordAccount", DBNull.Value); //passAluno.Text);
+                    cmd.Parameters.AddWithValue("@ID_Curso", Int32.Parse(idCursoAluno.Text));
+                    cmd.ExecuteNonQuery();
+                }
+
+                catch (SqlException ex)
+                {
+                    DisplaySqlErrors(ex);
+                }
+
+                FormAluno_Load(sender, e);
+                ShowAluno();
+
+                confirmBtn.Visible = false;
+                confirmBtn2.Visible = false;
+                cancelarBtn.Visible = false;
+                adicionarBtn.Visible = true;
+                updateBtn.Visible = true;
+                limparBtn.Visible = false;
+                eliminarBtn.Visible = true;
+
+
+                nomeAluno.ReadOnly = true;
+                emailAluno.ReadOnly = true;
+                nmecAluno.ReadOnly = true;
+                nmecTutorAluno.ReadOnly = true;
+                idadeAluno.ReadOnly = true;
+                idCursoAluno.ReadOnly = true;
+                idBibliotecaAluno.ReadOnly = true;
+                idHorarioAluno.ReadOnly = true;
+                passAluno.ReadOnly = true;
+
+                regimeEstudoAluno.Enabled = false;
             }
-            cmd.Parameters.AddWithValue("@Idade", Int32.Parse(idadeAluno.Text));
-            cmd.Parameters.AddWithValue("@PasswordAccount", DBNull.Value); //passAluno.Text);
-            cmd.Parameters.AddWithValue("@ID_Curso", Int32.Parse(idCursoAluno.Text));
-
-
-            cmd.ExecuteNonQuery();
-
-            FormAluno_Load(sender, e);
-            ShowAluno();
-
-            confirmBtn.Visible = false;
-            confirmBtn2.Visible = false;
-            cancelarBtn.Visible = false;
-            adicionarBtn.Visible = true;
-            updateBtn.Visible = true;
-            limparBtn.Visible = false;
-
-            nomeAluno.ReadOnly = true;
-            emailAluno.ReadOnly = true;
-            nmecAluno.ReadOnly = true;
-            nmecTutorAluno.ReadOnly = true;
-            idadeAluno.ReadOnly = true;
-            idCursoAluno.ReadOnly = true;
-            idBibliotecaAluno.ReadOnly = true;
-            idHorarioAluno.ReadOnly = true;
-            passAluno.ReadOnly = true;
-
-            regimeEstudoAluno.Enabled = false;
         }
 
         private void adicionarBtn_Click(object sender, EventArgs e)
@@ -256,6 +284,8 @@ namespace SAA_Project
             updateBtn.Visible = false;
             confirmBtn2.Visible = true;
             limparBtn.Visible = true;
+            eliminarBtn.Visible = false;
+
 
             nomeAluno.ReadOnly = false;
             emailAluno.ReadOnly = false;
@@ -280,15 +310,11 @@ namespace SAA_Project
 
         private void Limpar_Click(object sender, EventArgs e)
         {
-
             foreach (Control ctrl in Controls)
             {
                 if (ctrl is TextBoxBase)
                 {
-                    if (ctrl != nmecAluno)
-                    {
-                        ctrl.Text = String.Empty;
-                    }
+                    ctrl.Text = String.Empty;
                 }
             }
         }
@@ -303,65 +329,8 @@ namespace SAA_Project
                 menu.Show();
             }
         }
-
-        private void listBoxAlunoTurma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxAluno.SelectedIndex >= 0)
-            {
-                foreach (Control ctrl in Controls)
-                {
-                    if (ctrl is TextBoxBase)
-                    {
-                        ctrl.Text = String.Empty;
-                    }
-                }
-                currentAluno2 = listBoxAluno.SelectedIndex;
-                ShowAluno_Filtrado();
-            }
-        }
-
-        private void comboBoxTurma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!BDconnection.verifySGBDConnection())
-                return;
-
-            String ID_Turma = (String)comboBoxTurma.SelectedItem;
-            //SqlCommand cmd = new SqlCommand("EXEC SAA.ALUNOS_DA_TURMA @ID_Turma", BDconnection.getConnection());
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = BDconnection.getConnection();
-
-            cmd.CommandText = "EXEC SAA.ALUNOS_DA_TURMA @ID_Turma";
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@ID_Turma", Int32.Parse((String)comboBoxTurma.SelectedItem));
-
-            //cmd.ExecuteNonQuery();
-
-
-            SqlDataReader reader = cmd.ExecuteReader();
-            listBoxAluno.Items.Clear();
-
-            while (reader.Read())
-            {
-
-                Aluno A = new Aluno();
-                A.Nome = reader["Nome"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
-                A.NMEC = reader["NMEC"].ToString();
-                A.Email = reader["Email"].ToString();
-                A.RegimeEstudo = reader["RegimeEstudo"].ToString();
-                A.ID_Horario = reader["ID_Horario"].ToString();
-                A.ID_Biblioteca = reader["ID_Biblioteca"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
-                A.NMEC_Tutor = reader["NMEC_Tutor"].ToString();
-                A.Idade = reader["Idade"].ToString();
-
-                listBoxAluno.Items.Add(A);
-            }
-            BDconnection.getConnection().Close();
-
-            currentAluno2 = 0;
-            ShowAluno_Filtrado();
-        }
+      
+        
 
         public void ShowAluno()
         {
@@ -378,36 +347,85 @@ namespace SAA_Project
             idCursoAluno.Text = aluno.ID_Curso;
             nmecTutorAluno.Text = aluno.NMEC_Tutor;
             idadeAluno.Text = aluno.Idade;
+
+            n_Alunos.Text = listAluno.Items.Count.ToString();
         }
 
-        public void ShowAluno_Filtrado()
+
+
+
+        private void label13_Click(object sender, EventArgs e)
         {
-            if (listBoxAluno.Items.Count == 0 | currentAluno2 < 0)
-                return;
-            Aluno aluno2 = new Aluno();
-            aluno2 = (Aluno)listBoxAluno.Items[currentAluno2];
-            nomeAluno.Text = aluno2.Nome.ToString();
-            nmecAluno.Text = aluno2.NMEC;
-            emailAluno.Text = aluno2.Email;
-            regimeEstudoAluno.Text = aluno2.RegimeEstudo;
-            idHorarioAluno.Text = aluno2.ID_Horario;
-            idBibliotecaAluno.Text = aluno2.ID_Biblioteca;
-            idCursoAluno.Text = aluno2.ID_Curso;
-            nmecTutorAluno.Text = aluno2.NMEC_Tutor;
-            idadeAluno.Text = aluno2.Idade;
+
         }
 
-        private void N_TURMAS()
+      
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarBtn_Click_1(object sender, EventArgs e)
         {
             if (!BDconnection.verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand("EXEC N_TURMAS", BDconnection.getConnection());
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                comboBoxTurma.Items.Add(reader["ID_TURMA"].ToString());
+                if (!BDconnection.verifySGBDConnection())
+                    return;
+
+            Object obj = MessageBox.Show("Tem a certeza que pretende eliminar?", "", MessageBoxButtons.YesNo);
+
+            if (obj.ToString().Equals("Yes")) { 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = BDconnection.getConnection();
+
+                cmd.CommandText = "EXEC SAA.del_Aluno @NMEC";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@NMEC", nmecAluno.Text);
+
+                cmd.ExecuteNonQuery();
+                BDconnection.getConnection().Close();
+
+                FormAluno_Load(sender, e);
+                ShowAluno();
+
+                confirmBtn.Visible = false;
+                confirmBtn2.Visible = false;
+                cancelarBtn.Visible = false;
+                adicionarBtn.Visible = true;
+                updateBtn.Visible = true;
+                limparBtn.Visible = false;
+                eliminarBtn.Visible = true;
+
+                nomeAluno.ReadOnly = true;
+                emailAluno.ReadOnly = true;
+                nmecAluno.ReadOnly = true;
+                nmecTutorAluno.ReadOnly = true;
+                idadeAluno.ReadOnly = true;
+                idCursoAluno.ReadOnly = true;
+                idBibliotecaAluno.ReadOnly = true;
+                idHorarioAluno.ReadOnly = true;
+                passAluno.ReadOnly = true;
+
+                regimeEstudoAluno.Enabled = false;
             }
-            BDconnection.getConnection().Close();
+        }
+
+        private static void DisplaySqlErrors(SqlException exception)
+        {
+            for (int i = 0; i < exception.Errors.Count; i++)
+            {
+                //MessageBox.Show("Index #" + i + "\n" +
+                //   "Error: " + exception.Errors[i].ToString() + "\n");
+                MessageBox.Show("ERRO SQL");
+            }
+            Console.ReadLine();
+        }
+
+        private void NextPage_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormPerfilAluno fperfil = new FormPerfilAluno();
+            fperfil.Show();
         }
     }
 }

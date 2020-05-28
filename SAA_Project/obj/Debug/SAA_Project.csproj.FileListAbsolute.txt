@@ -62,3 +62,6 @@ C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.csproj.CoreCompileInputs.cache
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.exe
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.pdb
+C:\Users\gui26\OneDrive\Ambiente de Trabalho\UA\BD\SAA_Project\SAA_Project\obj\Debug\SAA_Project.FormHorario.resources
+C:\Users\gui26\OneDrive\Ambiente de Trabalho\UA\BD\SAA_Project\SAA_Project\obj\Debug\SAA_Project.FormHorario2.resources
+C:\Users\gui26\OneDrive\Ambiente de Trabalho\UA\BD\SAA_Project\SAA_Project\obj\Debug\SAA_Project.FormPerfilAluno.resources

@@ -47,7 +47,9 @@ namespace SAA_Project
 
         private void horario_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormHorario fHorario = new FormHorario();
+            fHorario.ShowDialog();
         }
 
         private void turmas_Click(object sender, EventArgs e)

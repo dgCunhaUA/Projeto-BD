@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aluno.cs" />
-    <Compile Include="AlunosPorTurma.cs" />
     <Compile Include="anosTurma.cs" />
     <Compile Include="BDconnection.cs" />
     <Compile Include="Departamento.cs" />
@@ -63,6 +62,12 @@
     <Compile Include="FormHomePage.Designer.cs">
       <DependentUpon>FormHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHorario2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHorario2.Designer.cs">
+      <DependentUpon>FormHorario2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +79,12 @@
     </Compile>
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPerfilAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPerfilAluno.Designer.cs">
+      <DependentUpon>FormPerfilAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPerfilProfessor1.cs">
       <SubType>Form</SubType>
@@ -105,6 +116,14 @@
     <Compile Include="FormUC.Designer.cs">
       <DependentUpon>FormUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHorario.Designer.cs">
+      <DependentUpon>FormHorario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HorAlunoProf.cs" />
+    <Compile Include="Horario.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="ProfTurma.cs" />
     <Compile Include="Program.cs" />
@@ -115,17 +134,27 @@
     <Compile Include="Turma.cs" />
     <Compile Include="turmaAluno.cs" />
     <Compile Include="Turma_Professor.cs" />
+    <Compile Include="UC.cs" />
     <EmbeddedResource Include="FormAluno.resx">
       <DependentUpon>FormAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHomePage.resx">
       <DependentUpon>FormHomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHorario.resx">
+      <DependentUpon>FormHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHorario2.resx">
+      <DependentUpon>FormHorario2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPerfilAluno.resx">
+      <DependentUpon>FormPerfilAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPerfilProfessor1.resx">
       <DependentUpon>FormPerfilProfessor1.cs</DependentUpon>

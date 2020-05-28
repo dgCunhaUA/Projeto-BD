@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace SAA_Project
 {
-    class Aluno
+    class HorAlunoProf
     {
+        //aluno
         private String _Nome;
         private String _NMEC;
         private String _Email;
-        private String _RegimeEstudo;
         private String _ID_Horario;
-        private String _ID_Biblioteca;
-        private String _ID_Curso;
-        private String _NMEC_Tutor;
-        private String _Idade;
+
+        //prof
+        private String _NomeProf;
+        private String _TNMEC;
+        private String _EmailProf;
+
 
         public String Nome
         {
@@ -28,6 +30,19 @@ namespace SAA_Project
                     throw new Exception("Nome necessário!");
                 }
                 _Nome = value;
+            }
+        }
+
+        public String NomeProf
+        {
+            get { return _NomeProf; }
+            set
+            {
+                if (value == null | String.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Nome Profesosr necessário!");
+                }
+                _NomeProf = value;
             }
         }
 
@@ -43,6 +58,19 @@ namespace SAA_Project
                 _NMEC = value;
             }
         }
+
+        public String TNMEC
+        {
+            get { return _TNMEC; }
+            set
+            {
+                if (value == null | String.IsNullOrEmpty(value))
+                {
+                    throw new Exception("TNMEC necessario!");
+                }
+                _TNMEC = value;
+            }
+        }
         public String Email
         {
             get { return _Email; }
@@ -53,6 +81,18 @@ namespace SAA_Project
                     throw new Exception("Email necessário");
                 }
                 _Email = value;
+            }
+        }
+        public String EmailProf
+        {
+            get { return _EmailProf; }
+            set
+            {
+                if (value == null | String.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Email do professor necessário");
+                }
+                _EmailProf = value;
             }
         }
         public String RegimeEstudo
