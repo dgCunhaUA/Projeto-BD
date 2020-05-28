@@ -62,7 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.emailProf = new System.Windows.Forms.TextBox();
-            this.listaUsers = new System.Windows.Forms.ListBox();
+            this.listaAlunos = new System.Windows.Forms.ListBox();
             this.labelnome2 = new System.Windows.Forms.Label();
             this.labelnmec2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -374,15 +374,15 @@
             this.emailProf.Size = new System.Drawing.Size(233, 20);
             this.emailProf.TabIndex = 170;
             // 
-            // listaUsers
+            // listaAlunos
             // 
-            this.listaUsers.FormattingEnabled = true;
-            this.listaUsers.Location = new System.Drawing.Point(69, 78);
-            this.listaUsers.Name = "listaUsers";
-            this.listaUsers.Size = new System.Drawing.Size(142, 264);
-            this.listaUsers.TabIndex = 172;
-            this.listaUsers.Visible = false;
-            this.listaUsers.SelectedIndexChanged += new System.EventHandler(this.listaUsers_SelectedIndexChanged);
+            this.listaAlunos.FormattingEnabled = true;
+            this.listaAlunos.Location = new System.Drawing.Point(69, 78);
+            this.listaAlunos.Name = "listaAlunos";
+            this.listaAlunos.Size = new System.Drawing.Size(142, 264);
+            this.listaAlunos.TabIndex = 172;
+            this.listaAlunos.Visible = false;
+            this.listaAlunos.SelectedIndexChanged += new System.EventHandler(this.listaUsers_SelectedIndexChanged);
             // 
             // labelnome2
             // 
@@ -413,7 +413,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelnome2);
             this.Controls.Add(this.labelnmec2);
-            this.Controls.Add(this.listaUsers);
+            this.Controls.Add(this.listaAlunos);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.emailProf);
             this.Controls.Add(this.label4);
@@ -492,7 +492,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox emailProf;
-        private System.Windows.Forms.ListBox listaUsers;
+        private System.Windows.Forms.ListBox listaAlunos;
         private System.Windows.Forms.Label labelnome2;
         private System.Windows.Forms.Label labelnmec2;
     }
