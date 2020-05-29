@@ -71,8 +71,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-=======
             this.label19 = new System.Windows.Forms.Label();
             this.id_nota = new System.Windows.Forms.TextBox();
             this.notaBox = new System.Windows.Forms.TextBox();
@@ -82,7 +80,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.SuspendLayout();
             // 
             // button1
@@ -385,11 +382,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-<<<<<<< HEAD
-            this.label5.Location = new System.Drawing.Point(423, 139);
-=======
             this.label5.Location = new System.Drawing.Point(448, 158);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 192;
@@ -398,11 +391,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-<<<<<<< HEAD
-            this.label6.Location = new System.Drawing.Point(499, 99);
-=======
             this.label6.Location = new System.Drawing.Point(448, 200);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 191;
@@ -411,11 +400,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-<<<<<<< HEAD
-            this.label7.Location = new System.Drawing.Point(423, 98);
-=======
             this.label7.Location = new System.Drawing.Point(448, 117);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 190;
@@ -423,11 +408,7 @@
             // 
             // id_uc_Registo
             // 
-<<<<<<< HEAD
-            this.id_uc_Registo.Location = new System.Drawing.Point(426, 155);
-=======
             this.id_uc_Registo.Location = new System.Drawing.Point(451, 174);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_uc_Registo.Name = "id_uc_Registo";
             this.id_uc_Registo.ReadOnly = true;
             this.id_uc_Registo.Size = new System.Drawing.Size(56, 20);
@@ -435,11 +416,7 @@
             // 
             // id_Aval_Registo
             // 
-<<<<<<< HEAD
-            this.id_Aval_Registo.Location = new System.Drawing.Point(502, 114);
-=======
             this.id_Aval_Registo.Location = new System.Drawing.Point(451, 215);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_Aval_Registo.Name = "id_Aval_Registo";
             this.id_Aval_Registo.ReadOnly = true;
             this.id_Aval_Registo.Size = new System.Drawing.Size(56, 20);
@@ -447,11 +424,7 @@
             // 
             // nmecRegisto
             // 
-<<<<<<< HEAD
-            this.nmecRegisto.Location = new System.Drawing.Point(426, 114);
-=======
             this.nmecRegisto.Location = new System.Drawing.Point(451, 133);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.nmecRegisto.Name = "nmecRegisto";
             this.nmecRegisto.ReadOnly = true;
             this.nmecRegisto.Size = new System.Drawing.Size(56, 20);
@@ -459,29 +432,12 @@
             // 
             // id_registo
             // 
-<<<<<<< HEAD
-            this.id_registo.Location = new System.Drawing.Point(426, 69);
-=======
             this.id_registo.Location = new System.Drawing.Point(451, 88);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_registo.Name = "id_registo";
             this.id_registo.ReadOnly = true;
             this.id_registo.Size = new System.Drawing.Size(56, 20);
             this.id_registo.TabIndex = 185;
             // 
-<<<<<<< HEAD
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(423, 49);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 17);
-            this.label11.TabIndex = 193;
-            this.label11.Text = "ID Registo";
-            // 
-=======
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             // label9
             // 
             this.label9.AutoSize = true;
@@ -512,8 +468,6 @@
             this.label17.TabIndex = 196;
             this.label17.Text = "UC";
             // 
-<<<<<<< HEAD
-=======
             // label19
             // 
             this.label19.AutoSize = true;
@@ -594,14 +548,11 @@
             this.label18.TabIndex = 210;
             this.label18.Text = "ID Falta";
             // 
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             // FormRegistos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-<<<<<<< HEAD
-=======
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label23);
@@ -610,7 +561,6 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.id_nota);
             this.Controls.Add(this.notaBox);
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -708,8 +658,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label17;
-<<<<<<< HEAD
-=======
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox id_nota;
         private System.Windows.Forms.TextBox notaBox;
@@ -719,6 +667,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
->>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
     }
 }
