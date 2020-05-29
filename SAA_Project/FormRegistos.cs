@@ -129,7 +129,41 @@ namespace SAA_Project
             {
                 currentRegisto = listRegistos.SelectedIndex;
                 ShowRegisto();
+                ShowTipoRegisto();
             }
+        }
+
+        private void ShowTipoRegisto()
+        {
+            if (!BDconnection.verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = BDconnection.getConnection();
+
+            cmd.CommandText = "EXEC ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@NMEC", nmecAluno.Text);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            listRegistos.Items.Clear();
+
+            while (reader.Read())
+            {
+
+                Registo R = new Registo();
+                R.ID_Registo = reader["ID_Registo"].ToString();
+                R.NMEC = reader["NMEC"].ToString();
+                R.ID_UC = reader["ID_UC"].ToString();
+                R.ID_Aval = reader["ID_Aval"].ToString();
+
+                listRegistos.Items.Add(R);
+            }
+            BDconnection.getConnection().Close();
+
+            currentRegisto = 0;
+
+            ShowRegisto();
         }
     }
 }

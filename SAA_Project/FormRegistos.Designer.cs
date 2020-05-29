@@ -72,8 +72,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -376,7 +374,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(450, 138);
+            this.label5.Location = new System.Drawing.Point(423, 139);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 192;
@@ -385,7 +383,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(526, 98);
+            this.label6.Location = new System.Drawing.Point(499, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 191;
@@ -394,7 +392,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(450, 97);
+            this.label7.Location = new System.Drawing.Point(423, 98);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 190;
@@ -402,7 +400,7 @@
             // 
             // id_uc_Registo
             // 
-            this.id_uc_Registo.Location = new System.Drawing.Point(453, 154);
+            this.id_uc_Registo.Location = new System.Drawing.Point(426, 155);
             this.id_uc_Registo.Name = "id_uc_Registo";
             this.id_uc_Registo.ReadOnly = true;
             this.id_uc_Registo.Size = new System.Drawing.Size(56, 20);
@@ -410,7 +408,7 @@
             // 
             // id_Aval_Registo
             // 
-            this.id_Aval_Registo.Location = new System.Drawing.Point(529, 113);
+            this.id_Aval_Registo.Location = new System.Drawing.Point(502, 114);
             this.id_Aval_Registo.Name = "id_Aval_Registo";
             this.id_Aval_Registo.ReadOnly = true;
             this.id_Aval_Registo.Size = new System.Drawing.Size(50, 20);
@@ -418,7 +416,7 @@
             // 
             // nmecRegisto
             // 
-            this.nmecRegisto.Location = new System.Drawing.Point(453, 113);
+            this.nmecRegisto.Location = new System.Drawing.Point(426, 114);
             this.nmecRegisto.Name = "nmecRegisto";
             this.nmecRegisto.ReadOnly = true;
             this.nmecRegisto.Size = new System.Drawing.Size(56, 20);
@@ -426,7 +424,7 @@
             // 
             // id_registo
             // 
-            this.id_registo.Location = new System.Drawing.Point(453, 68);
+            this.id_registo.Location = new System.Drawing.Point(426, 69);
             this.id_registo.Name = "id_registo";
             this.id_registo.ReadOnly = true;
             this.id_registo.Size = new System.Drawing.Size(126, 20);
@@ -436,7 +434,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(450, 48);
+            this.label11.Location = new System.Drawing.Point(423, 49);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 17);
             this.label11.TabIndex = 193;
@@ -472,31 +470,11 @@
             this.label17.TabIndex = 196;
             this.label17.Text = "UC";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(618, 48);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(94, 15);
-            this.label18.TabIndex = 198;
-            this.label18.Text = "Tipo de Registo";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(621, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 197;
-            // 
             // FormRegistos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -595,7 +573,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
