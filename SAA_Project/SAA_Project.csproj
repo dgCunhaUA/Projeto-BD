@@ -50,6 +50,7 @@
     <Compile Include="anosTurma.cs" />
     <Compile Include="BDconnection.cs" />
     <Compile Include="Departamento.cs" />
+    <Compile Include="Falta_Nota.cs" />
     <Compile Include="FormAluno.cs">
       <SubType>Form</SubType>
     </Compile>

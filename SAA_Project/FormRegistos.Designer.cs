@@ -68,10 +68,21 @@
             this.id_Aval_Registo = new System.Windows.Forms.TextBox();
             this.nmecRegisto = new System.Windows.Forms.TextBox();
             this.id_registo = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+=======
+            this.label19 = new System.Windows.Forms.Label();
+            this.id_nota = new System.Windows.Forms.TextBox();
+            this.notaBox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.id_falta = new System.Windows.Forms.TextBox();
+            this.tipoFalta = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.SuspendLayout();
             // 
             // button1
@@ -374,7 +385,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(423, 139);
+=======
+            this.label5.Location = new System.Drawing.Point(448, 158);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 192;
@@ -383,7 +398,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
+<<<<<<< HEAD
             this.label6.Location = new System.Drawing.Point(499, 99);
+=======
+            this.label6.Location = new System.Drawing.Point(448, 200);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 191;
@@ -392,7 +411,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
+<<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(423, 98);
+=======
+            this.label7.Location = new System.Drawing.Point(448, 117);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 190;
@@ -400,7 +423,11 @@
             // 
             // id_uc_Registo
             // 
+<<<<<<< HEAD
             this.id_uc_Registo.Location = new System.Drawing.Point(426, 155);
+=======
+            this.id_uc_Registo.Location = new System.Drawing.Point(451, 174);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_uc_Registo.Name = "id_uc_Registo";
             this.id_uc_Registo.ReadOnly = true;
             this.id_uc_Registo.Size = new System.Drawing.Size(56, 20);
@@ -408,15 +435,23 @@
             // 
             // id_Aval_Registo
             // 
+<<<<<<< HEAD
             this.id_Aval_Registo.Location = new System.Drawing.Point(502, 114);
+=======
+            this.id_Aval_Registo.Location = new System.Drawing.Point(451, 215);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_Aval_Registo.Name = "id_Aval_Registo";
             this.id_Aval_Registo.ReadOnly = true;
-            this.id_Aval_Registo.Size = new System.Drawing.Size(50, 20);
+            this.id_Aval_Registo.Size = new System.Drawing.Size(56, 20);
             this.id_Aval_Registo.TabIndex = 187;
             // 
             // nmecRegisto
             // 
+<<<<<<< HEAD
             this.nmecRegisto.Location = new System.Drawing.Point(426, 114);
+=======
+            this.nmecRegisto.Location = new System.Drawing.Point(451, 133);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.nmecRegisto.Name = "nmecRegisto";
             this.nmecRegisto.ReadOnly = true;
             this.nmecRegisto.Size = new System.Drawing.Size(56, 20);
@@ -424,12 +459,17 @@
             // 
             // id_registo
             // 
+<<<<<<< HEAD
             this.id_registo.Location = new System.Drawing.Point(426, 69);
+=======
+            this.id_registo.Location = new System.Drawing.Point(451, 88);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.id_registo.Name = "id_registo";
             this.id_registo.ReadOnly = true;
-            this.id_registo.Size = new System.Drawing.Size(126, 20);
+            this.id_registo.Size = new System.Drawing.Size(56, 20);
             this.id_registo.TabIndex = 185;
             // 
+<<<<<<< HEAD
             // label11
             // 
             this.label11.AutoSize = true;
@@ -440,6 +480,8 @@
             this.label11.TabIndex = 193;
             this.label11.Text = "ID Registo";
             // 
+=======
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             // label9
             // 
             this.label9.AutoSize = true;
@@ -470,11 +512,105 @@
             this.label17.TabIndex = 196;
             this.label17.Text = "UC";
             // 
+<<<<<<< HEAD
+=======
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(560, 118);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(30, 13);
+            this.label19.TabIndex = 201;
+            this.label19.Text = "Nota";
+            // 
+            // id_nota
+            // 
+            this.id_nota.Location = new System.Drawing.Point(560, 88);
+            this.id_nota.Name = "id_nota";
+            this.id_nota.ReadOnly = true;
+            this.id_nota.Size = new System.Drawing.Size(56, 20);
+            this.id_nota.TabIndex = 199;
+            // 
+            // notaBox
+            // 
+            this.notaBox.Location = new System.Drawing.Point(560, 134);
+            this.notaBox.Name = "notaBox";
+            this.notaBox.ReadOnly = true;
+            this.notaBox.Size = new System.Drawing.Size(56, 20);
+            this.notaBox.TabIndex = 198;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(664, 117);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(54, 13);
+            this.label23.TabIndex = 206;
+            this.label23.Text = "Tipo Falta";
+            // 
+            // id_falta
+            // 
+            this.id_falta.Location = new System.Drawing.Point(667, 88);
+            this.id_falta.Name = "id_falta";
+            this.id_falta.ReadOnly = true;
+            this.id_falta.Size = new System.Drawing.Size(56, 20);
+            this.id_falta.TabIndex = 205;
+            // 
+            // tipoFalta
+            // 
+            this.tipoFalta.Location = new System.Drawing.Point(667, 133);
+            this.tipoFalta.Name = "tipoFalta";
+            this.tipoFalta.ReadOnly = true;
+            this.tipoFalta.Size = new System.Drawing.Size(96, 20);
+            this.tipoFalta.TabIndex = 203;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(448, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 17);
+            this.label11.TabIndex = 193;
+            this.label11.Text = "ID Registo";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(557, 69);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 17);
+            this.label20.TabIndex = 209;
+            this.label20.Text = "ID Nota";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(664, 68);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 17);
+            this.label18.TabIndex = 210;
+            this.label18.Text = "ID Falta";
+            // 
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             // FormRegistos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+<<<<<<< HEAD
+=======
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.id_falta);
+            this.Controls.Add(this.tipoFalta);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.id_nota);
+            this.Controls.Add(this.notaBox);
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -569,9 +705,20 @@
         private System.Windows.Forms.TextBox id_Aval_Registo;
         private System.Windows.Forms.TextBox nmecRegisto;
         private System.Windows.Forms.TextBox id_registo;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label17;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox id_nota;
+        private System.Windows.Forms.TextBox notaBox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox id_falta;
+        private System.Windows.Forms.TextBox tipoFalta;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+>>>>>>> 49e229d7a4bc8b7af69768599b718e4861aae04a
     }
 }
