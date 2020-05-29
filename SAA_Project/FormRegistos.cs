@@ -160,6 +160,9 @@ namespace SAA_Project
                 {
                     FN.ID_Falta = reader["ID_Falta"].ToString();
                     FN.ID_Registo = reader["ID_Registo"].ToString();
+
+                    id_falta.Text = FN.ID_Falta;
+                    
                 }
                 catch (Exception e)
                 {
