@@ -15,6 +15,7 @@ namespace SAA_Project
     {
         private int currentAluno;
         private int currentRegisto;
+        private int nota_ver = 0;
 
         public FormRegistos()
         {
@@ -75,6 +76,7 @@ namespace SAA_Project
                 currentAluno = listAlunos.SelectedIndex;
                 ShowAluno();
                 ListarRegistos();
+                ListarFN();         //teste
             }
         }
 
@@ -107,7 +109,6 @@ namespace SAA_Project
             BDconnection.getConnection().Close();
 
             currentRegisto = 0;
-
             ShowRegisto();
         }
 
@@ -121,7 +122,71 @@ namespace SAA_Project
             nmecRegisto.Text = R.NMEC;
             id_uc_Registo.Text = R.ID_UC;
             id_Aval_Registo.Text = R.ID_Aval;
+
         }
+
+        private void ListarFN()
+        {
+            if (!BDconnection.verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = BDconnection.getConnection();
+
+            cmd.CommandText = "EXEC SAA.INFO_REGISTO @ID_Registo";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ID_Registo", id_registo.Text);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Falta_Nota FN = new Falta_Nota();
+                try
+                {
+                    FN.ID_Registo = reader["ID_Registo"].ToString();
+                    FN.ID_Nota = reader["ID_Nota"].ToString();
+                    FN.Nota = reader["Nota"].ToString();
+
+                    id_nota.Text = FN.ID_Nota;
+                    notaBox.Text = FN.Nota;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Nao e nota");
+                }
+
+                try
+                {
+                    FN.ID_Falta = reader["ID_Falta"].ToString();
+                    FN.ID_Registo = reader["ID_Registo"].ToString();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Nao e falta");
+                }
+
+            }
+            BDconnection.getConnection().Close();
+
+            //currentRegisto = 0;
+            ShowFN();
+        }
+
+        private void ShowFN()
+        {
+            if (listRegistos.Items.Count == 0 | currentRegisto < 0)
+                return;
+            Falta_Nota FN = new Falta_Nota();
+            //FN = (Falta_Nota)listRegistos.Items[currentRegisto];
+            /*
+            id_nota.Text = FN.ID_Nota.ToString();
+            nmecRegisto.Text = FN.NMEC;
+            id_uc_Registo.Text = FN.ID_UC;
+            id_Aval_Registo.Text = FN.ID_Aval;*/
+
+        }
+
 
         private void listRegistos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -129,6 +194,7 @@ namespace SAA_Project
             {
                 currentRegisto = listRegistos.SelectedIndex;
                 ShowRegisto();
+                ShowFN();
             }
         }
     }
