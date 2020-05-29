@@ -13,11 +13,18 @@ namespace SAA_Project
         private String _NMEC;
         private String _Email;
         private String _ID_Horario;
+        private String _RegimeEstudo;
+        private String _ID_Biblioteca;
+        private String _ID_Curso;
+        private String _NMEC_Tutor;
+        private String _Idade;
 
         //prof
         private String _NomeProf;
         private String _TNMEC;
         private String _EmailProf;
+        private int _numGabinete;
+        private int _ID_Dep;
 
 
         public String Nome
@@ -71,6 +78,36 @@ namespace SAA_Project
             }
         }
 
+        public String RegimeEstudo
+        {
+            get { return _RegimeEstudo; }
+            set { _RegimeEstudo = value; }
+        }
+
+        public String ID_Biblioteca
+        {
+            get { return _ID_Biblioteca; }
+            set { _ID_Biblioteca = value; }
+        }
+
+        public String ID_Curso
+        {
+            get { return _ID_Curso; }
+            set { _ID_Curso = value; }
+        }
+
+        public String NMEC_Tutor
+        {
+            get { return _NMEC_Tutor; }
+            set { _NMEC_Tutor = value; }
+        }
+
+        public String Idade
+        {
+            get { return _Idade; }
+            set { _Idade = value; }
+        }
+
         public String TNMEC
         {
             get { return _TNMEC; }
@@ -107,7 +144,26 @@ namespace SAA_Project
                 _EmailProf = value;
             }
         }
-      
+
+        public int numGabinete
+        {
+            get { return _numGabinete; }
+            set
+            {
+                _numGabinete = value;
+            }
+        }
+
+        public int ID_Dep
+        {
+            get { return _ID_Dep; }
+            set
+            {
+
+                _ID_Dep = value;
+            }
+        }
+
         public override String ToString()
         {
             String s = String.Format("{0,-15}  {1,-10}", _NMEC, Nome);

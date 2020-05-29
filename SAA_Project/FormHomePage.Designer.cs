@@ -40,6 +40,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.Curso = new System.Windows.Forms.Button();
             this.Aluno_btn = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonUC
@@ -171,11 +172,23 @@
             this.Aluno_btn.UseVisualStyleBackColor = true;
             this.Aluno_btn.Click += new System.EventHandler(this.Aluno_btn_Click);
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Arial", 14F);
+            this.button8.Location = new System.Drawing.Point(628, 317);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 47);
+            this.button8.TabIndex = 14;
+            this.button8.Text = "Notas";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // FormHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.Aluno_btn);
             this.Controls.Add(this.Curso);
             this.Controls.Add(this.button7);
@@ -209,5 +222,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button Curso;
         private System.Windows.Forms.Button Aluno_btn;
+        private System.Windows.Forms.Button button8;
     }
 }

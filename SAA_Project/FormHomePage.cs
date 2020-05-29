@@ -84,5 +84,12 @@ namespace SAA_Project
             FormAluno fAluno = new FormAluno();
             fAluno.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormRegistos fRegistos = new FormRegistos();
+            fRegistos.ShowDialog();
+        }
     }
 }

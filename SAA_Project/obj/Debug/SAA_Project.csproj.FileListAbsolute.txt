@@ -68,3 +68,4 @@ C:\Users\gui26\OneDrive\Ambiente de Trabalho\UA\BD\SAA_Project\SAA_Project\obj\D
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.FormHorario.resources
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.FormHorario2.resources
 C:\Users\ser\Desktop\UA\2º Ano\BD\Projeto-BD\SAA_Project\obj\Debug\SAA_Project.FormPerfilAluno.resources
+C:\Users\gui26\OneDrive\Ambiente de Trabalho\UA\BD\SAA_Project\SAA_Project\obj\Debug\SAA_Project.FormRegistos.resources

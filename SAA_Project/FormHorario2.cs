@@ -51,7 +51,6 @@ namespace SAA_Project
             }
             BDconnection.getConnection().Close();
 
-            //currentHorario = currentHorario2;
             currentHorario = 0;
         }
 
@@ -60,8 +59,7 @@ namespace SAA_Project
             if (listaAlunos.SelectedIndex >= 0)
             {
                 currentAluno = listaAlunos.SelectedIndex;
-                ShowAluno();
-                ShowProfessor();
+                ShowDados();
             }
         }
 
@@ -82,7 +80,6 @@ namespace SAA_Project
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = BDconnection.getConnection();
 
-                //cmd.CommandText = "EXEC SAA.ALUNOS_DO_HORARIO @ID_Horario";
                 cmd.CommandText = "Select * from SAA.DADOS_HOR_X2 (@ID_Horario)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@ID_Horario", current_id_horario);
@@ -92,67 +89,32 @@ namespace SAA_Project
 
                 while (reader.Read())
                 {
+                    HorAlunoProf aluProf = new HorAlunoProf();
+                    aluProf.Nome = reader["Nome"].ToString();
+                    aluProf.NMEC = reader["NMEC"].ToString();
+                    aluProf.Email = reader["Email_Aluno"].ToString();
+                    aluProf.ID_Horario = reader["ID_Horario"].ToString();
+                    aluProf.NMEC_Tutor = reader["NMEC_Tutor"].ToString();
+                    aluProf.RegimeEstudo = reader["RegimeEstudo"].ToString();
+                    aluProf.ID_Biblioteca = reader["ID_Biblioteca"].ToString();
+                    aluProf.ID_Curso = reader["ID_Curso"].ToString();
+                    aluProf.Idade = reader["Idade"].ToString();
 
-                    HorAlunoProf A = new HorAlunoProf();
-                    //Aluno A = new Aluno();
-                    A.Nome = reader["Nome"].ToString();
-                    A.NMEC = reader["NMEC"].ToString();
-                    A.Email = reader["Email_Aluno"].ToString();
-                    A.ID_Horario = reader["ID_Horario"].ToString();
+                    aluProf.NomeProf = reader["Nome_Prof"].ToString();
+                    aluProf.EmailProf = reader["Email_Prof"].ToString();
+                    aluProf.TNMEC = reader["TMEC"].ToString();
+                    aluProf.numGabinete = (int)reader["Num_Gabinete"];
+                    aluProf.ID_Dep = (int)reader["ID_Dep"];
 
-                    //Professor P = new Professor();
-                    A.Nome = reader["Nome_Prof"].ToString();
-                    A.Email = reader["Email_Prof"].ToString();
-                    A.TNMEC = reader["TMEC"].ToString();
-                    
-
-                    listaAlunos.Items.Add(A);
+                    listaAlunos.Items.Add(aluProf);
                 }
-                BDconnection.getConnection().Close();
 
+                BDconnection.getConnection().Close();
+    
                 currentAluno = 0;
-                //ShowAluno();
-                //ShowAProfesor();
                 ShowDados();
             }
-        }
-
-        public void ShowAluno()
-        {
-            if (listaAlunos.Items.Count == 0 | currentAluno < 0)
-                return;
-
-            labelNMEC_TUTOR.Text = "NMEC Tutor";
-            labelIdade.Text = "Idade";
-            labelCurso.Text = "Curso";
-            labelNMEC.Text = "NMEC";
-            labelEmail.Text = "Email";
-            labelnmec2.Text = "NMEC";
-            labelnome2.Text = "Nome";
-            regimeEstudoAluno.Visible = true;
-            idBibliotecaAluno.Visible = true;
-            labelRegime.Visible = true;
-            labelHorario.Visible = true;
-            labelBiblio.Visible = true;
-            passAluno.Visible = true;
-            idHorarioAluno.Visible = true;
-            nomeAluno.Visible = true;
-            idCursoAluno.Visible = true;
-            labelNome.Visible = true;
-            labelCurso.Visible = true;
-
-            Aluno aluno = new Aluno();
-            aluno = (Aluno)listaAlunos.Items[currentAluno];
-            nomeAluno.Text = aluno.Nome.ToString();
-            nmecAluno.Text = aluno.NMEC;
-            emailAluno.Text = aluno.Email;
-            regimeEstudoAluno.Text = aluno.RegimeEstudo;
-            idHorarioAluno.Text = aluno.ID_Horario;
-            idBibliotecaAluno.Text = aluno.ID_Biblioteca;
-            idCursoAluno.Text = aluno.ID_Curso;
-            nmecTutorAluno.Text = aluno.NMEC_Tutor;
-            idadeAluno.Text = aluno.Idade;
-        }
+        }    
 
         public void ShowDados()
         {
@@ -178,36 +140,27 @@ namespace SAA_Project
             labelNome.Visible = true;
             labelCurso.Visible = true;
 
-            HorAlunoProf aluno = new HorAlunoProf();
-            aluno = (HorAlunoProf)listaAlunos.Items[currentAluno];
-            nomeAluno.Text = aluno.Nome.ToString();
-            nmecAluno.Text = aluno.NMEC;
-            emailAluno.Text = aluno.Email;
-            //regimeEstudoAluno.Text = aluno.RegimeEstudo;
-            idHorarioAluno.Text = aluno.ID_Horario;
-            //idBibliotecaAluno.Text = aluno.ID_Biblioteca;
-            //idCursoAluno.Text = aluno.ID_Curso;
-            //nmecTutorAluno.Text = aluno.NMEC_Tutor;
-            //idadeAluno.Text = aluno.Idade;
+            HorAlunoProf aluProf = new HorAlunoProf();
+            aluProf = (HorAlunoProf)listaAlunos.Items[currentAluno];
+            nomeAluno.Text = aluProf.Nome.ToString();
+            nmecAluno.Text = aluProf.NMEC;
+            emailAluno.Text = aluProf.Email;
+            regimeEstudoAluno.Text = aluProf.RegimeEstudo;
+            idHorarioAluno.Text = aluProf.ID_Horario;
+            idBibliotecaAluno.Text = aluProf.ID_Biblioteca;
+            idCursoAluno.Text = aluProf.ID_Curso;
+            nmecTutorAluno.Text = aluProf.NMEC_Tutor;
+            idadeAluno.Text = aluProf.Idade;
 
             //professor
-            nomeProf.Text = aluno.Nome.ToString();
-            tnmecProf.Text = aluno.TNMEC.ToString();
-            emailProf.Text = aluno.Email.ToString();
-        }
-
-        public void ShowProfessor()
-        {
-            if (listaAlunos.Items.Count == 0 | currentAluno < 0)
-                return;
-            Professor p = new Professor();
-            p = (Professor)listaAlunos.Items[currentAluno];
-            nomeProf.Text = p.Nome.ToString();
-            tnmecProf.Text = p.TNMEC.ToString();
-            emailProf.Text = p.Email.ToString();
-            // textBox6.Text = p.ID_Dep.ToString();
+            nomeProf.Text = aluProf.NomeProf.ToString();
+            tnmecProf.Text = aluProf.TNMEC.ToString();
+            emailProf.Text = aluProf.EmailProf.ToString();
+            gabineteProf.Text = aluProf.numGabinete.ToString();
+            depProf.Text = aluProf.ID_Dep.ToString();
 
         }
+
 
     }
 }
