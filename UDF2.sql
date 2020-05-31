@@ -511,7 +511,40 @@ BEGIN
     END
 END
 
-go
+--delete registo
+CREATE PROC SAA.delRegisto ( @ID_Registo INT )
+AS
+	DELETE SAA.REGISTO
+	WHERE ID_Registo = @ID_Registo
+
+--trigger para apagar o registo
+CREATE TRIGGER SAA.deleteRegistoTrigger ON SAA.Registo
+INSTEAD OF delete
+AS
+	BEGIN
+		IF (SELECT count(*) FROM deleted) = 1
+		DECLARE @ID_Registo INT;
+		DECLARE @ID_Falta INT;
+
+		BEGIN
+			SELECT @ID_Registo=ID_Registo FROM deleted;
+
+			IF EXISTS ( SELECT * FROM SAA.FALTA WHERE ID_Registo = @ID_Registo)
+			BEGIN
+				SELECT @ID_Falta = ID_Falta FROM SAA.FALTA WHERE ID_Registo = @ID_Registo
+				DELETE SAA.TipoFalta WHERE ID_Falta = @ID_Falta
+				DELETE SAA.FALTA WHERE ID_Registo = @ID_Registo
+				--DELETE SAA.REGISTO WHERE ID_Registo = @ID_Registo
+			END
+			IF EXISTS ( SELECT * FROM SAA.Nota WHERE ID_Registo = @ID_Registo)
+			BEGIN
+				DELETE SAA.NOTA WHERE ID_Registo = @ID_Registo
+				--DELETE SAA.REGISTO WHERE ID_Registo = @ID_Registo
+			END
+
+			DELETE SAA.REGISTO WHERE ID_Registo = @ID_Registo
+		END
+	END
 
 --VERIFICAR SE ID_AVAL EXISTE
 CREATE FUNCTION SAA.X_ID_AVAL_DA_UC_X (@ID_UC INT, @ID_Aval INT) RETURNS TABLE
@@ -543,11 +576,11 @@ CREATE PROC SAA.INFO_REGISTO ( @ID_Registo INT )
 AS
 	IF EXISTS ( SELECT * FROM SAA.NOTA WHERE ID_Registo = @ID_Registo )
 		BEGIN 
-			SELECT * FROM SAA.NOTA WHERE ID_Registo = @ID_Registo
+			SELECT ID_Nota, Nota, SAA.NOTA.ID_Registo, NMEC, ID_UC, ID_Aval FROM SAA.NOTA JOIN SAA.REGISTO ON SAA.NOTA.ID_REGISTO=SAA.REGISTO.ID_REGISTO WHERE ID_Registo = @ID_Registo
 		END
 	IF EXISTS ( SELECT * FROM SAA.FALTA WHERE ID_Registo = @ID_Registo )
 		BEGIN 
-			SELECT * FROM SAA.FALTA WHERE ID_Registo = @ID_Registo
+			SELECT * FROM SAA.FALTA WHERE ID_Registo = @ID_Registo JOIN SAA.TipoFalta ON SAA.FALTA.ID_FALTA = SAA.TipoFalta.ID_FALTA
 		END
 
 
@@ -692,10 +725,131 @@ BEGIN
 END
 
 
+CREATE PROC SAA.updateNota ( @ID_Nota INT, @Nota DECIMAL)
+AS
+	UPDATE SAA.Nota
+	SET Nota = @Nota
 
 
+--ENTIDADE FALTA --------------------------------------------------------------------------------------------------------------------------
+
+--ADD FALTA
+CREATE PROC SAA.addFalta (@NMEC INT, @ID_UC INT, @ID_AVAL INT, @TipoFalta VARCHAR(50))
+AS
+	DECLARE @ID_FaltaX INT;
+	DECLARE @ID_Registo INT;
+
+	INSERT INTO SAA.REGISTO (NMEC, ID_UC, ID_Aval)
+	VALUES (@NMEC, @ID_UC, @ID_Aval)	
+
+	SELECT TOP 1 @ID_Registo=ID_Registo FROM SAA.REGISTO ORDER BY ID_Registo DESC;
+
+	INSERT INTO SAA.FALTA
+	VALUES (@ID_Registo, @ID_FaltaX)
+
+	INSERT INTO SAA.TipoFalta
+	VALUES (@ID_FALTAX, @TipoFalta)
+	
+--add tipo falta trigger
+CREATE TRIGGER SAA.addTipoFaltaTrigger ON SAA.TipoFalta
+INSTEAD OF INSERT
+AS
+BEGIN
+	DECLARE @ID_FaltaX INT;
+	DECLARE @TipoFalta VARCHAR(50);
 
 
+    IF(SELECT count(*) FROM inserted) = 1
+    BEGIN
+		SELECT TOP 1 @ID_FaltaX=ID_Falta FROM SAA.FALTA ORDER BY ID_Falta DESC;
+		SELECT @TipoFalta = tipo_Falta from inserted
+	
+		INSERT INTO SAA.TipoFalta
+		VALUES (@ID_FALTAX, @TipoFalta)
+    END
+END
+GO
+
+--add falta trigger
+CREATE TRIGGER SAA.addFaltaTrigger ON SAA.Falta
+INSTEAD OF INSERT
+AS
+BEGIN
+    IF(SELECT count(*) FROM inserted) = 1
+    BEGIN
+		DECLARE @NMECX INT;
+
+		DECLARE @COUNT INT = 0;
+		DECLARE @N_ROWS INT;
+       
+		DECLARE @ID_FaltaX INT = 0;
+		DECLARE @TipoFalta VARCHAR(50);
+		DECLARE @ID_Registo INT;
+		DECLARE @ID_FaltaX1 INT;
+		DECLARE @ID_Registo1 INT;
+
+		DECLARE @ERRO INT = 0;
+
+        SELECT @ID_Registo = ID_Registo FROM inserted 
+		SELECT @N_ROWS=COUNT(*) FROM SAA.Falta;  
+		DECLARE cursorX CURSOR
+		FOR SELECT * FROM SAA.Falta;
+        OPEN cursorX;
+        FETCH cursorX INTO @ID_Registo1, @ID_FaltaX1 ;
+
+		BEGIN TRAN 
+			WHILE @@FETCH_STATUS = 0 AND @COUNT < @N_ROWS
+			BEGIN
+				IF(@ID_Registo = @ID_Registo1)
+					BEGIN
+						RAISERROR('Registo em uso', 16, 1)
+						SET @ERRO = 1;
+					END
+				SET @ID_FaltaX = @ID_FaltaX1
+				FETCH cursorX INTO @ID_Registo1, @ID_FaltaX1
+				SET @COUNT = @COUNT + 1;
+				
+			END;
+			SET @ID_FaltaX = @ID_FaltaX + 1;
+
+			PRINT @ID_Registo
+
+			INSERT INTO SAA.Falta
+			VALUES (@ID_Registo, @ID_FaltaX)
+			
+			IF (@ERRO = 1)
+				BEGIN
+					ROLLBACK TRAN
+					Delete SAA.REGISTO WHERE ID_Registo = @ID_Registo				--TODO: alterar para proc?
+				END
+		COMMIT TRAN
+        CLOSE cursorX;
+        DEALLOCATE cursorX;		
+    END
+END
+
+CREATE PROC SAA.updateFalta ( @ID_FALTA INT, @TipoFalta VARCHAR(50), @ID_Registo INT, @ID_UC INT, @ID_Aval INT)
+AS
+	UPDATE SAA.Registo
+	SET ID_UC = @ID_UC,
+		ID_Aval = @ID_Aval
+	WHERE ID_Registo = @ID_Registo
+
+	UPDATE SAA.TipoFalta
+	SET tipo_Falta = @TipoFalta
+	WHERE ID_Falta = @ID_Falta
+
+
+CREATE PROC SAA.updateNota ( @ID_Nota INT, @Nota DECIMAL, @ID_Registo INT, @ID_UC INT, @ID_Aval INT)
+AS
+	UPDATE SAA.Registo
+	SET ID_UC = @ID_UC,
+		ID_Aval = @ID_Aval
+	WHERE ID_Registo = @ID_Registo
+
+	UPDATE SAA.Nota
+	SET Nota = @Nota
+	WHERE ID_Nota = @ID_Nota
 
 --ENTIDADE PROFESSOR ---------------------------------------------------------------------------------------------------------------------
 --UDF total de professores do departamento X

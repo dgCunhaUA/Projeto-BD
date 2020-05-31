@@ -104,7 +104,6 @@ namespace SAA_Project
 
                 Aluno A = new Aluno();
                 A.Nome = reader["Nome"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
                 A.NMEC = reader["NMEC"].ToString();
                 A.Email = reader["Email"].ToString();
                 A.RegimeEstudo = reader["RegimeEstudo"].ToString();
@@ -163,7 +162,6 @@ namespace SAA_Project
 
                 Aluno A = new Aluno();
                 A.Nome = reader["Nome"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
                 A.NMEC = reader["NMEC"].ToString();
                 A.Email = reader["Email"].ToString();
                 A.RegimeEstudo = reader["RegimeEstudo"].ToString();
@@ -222,7 +220,6 @@ namespace SAA_Project
 
                 Aluno A = new Aluno();
                 A.Nome = reader["Nome"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
                 A.NMEC = reader["NMEC"].ToString();
                 A.Email = reader["Email"].ToString();
                 A.RegimeEstudo = reader["RegimeEstudo"].ToString();
@@ -266,7 +263,6 @@ namespace SAA_Project
 
                 Aluno A = new Aluno();
                 A.Nome = reader["Nome"].ToString();
-                A.ID_Curso = reader["ID_Curso"].ToString();
                 A.NMEC = reader["NMEC"].ToString();
                 A.Email = reader["Email"].ToString();
                 A.RegimeEstudo = reader["RegimeEstudo"].ToString();

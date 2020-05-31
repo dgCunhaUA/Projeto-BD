@@ -35,11 +35,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.labelRegistos = new System.Windows.Forms.Label();
             this.listAlunos = new System.Windows.Forms.ListBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelDepf = new System.Windows.Forms.Label();
             this.comboBoxDep = new System.Windows.Forms.ComboBox();
             this.comboBoxCurso = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.labelcursof = new System.Windows.Forms.Label();
+            this.labelturmaf = new System.Windows.Forms.Label();
             this.comboBoxTurma = new System.Windows.Forms.ComboBox();
             this.listRegistos = new System.Windows.Forms.ListBox();
             this.labelCurso = new System.Windows.Forms.Label();
@@ -52,11 +52,11 @@
             this.emailAluno = new System.Windows.Forms.TextBox();
             this.labelNome = new System.Windows.Forms.Label();
             this.nomeAluno = new System.Windows.Forms.TextBox();
-            this.confirmBtn2 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.notaBtn = new System.Windows.Forms.Button();
+            this.faltaBtn = new System.Windows.Forms.Button();
+            this.labelucadd = new System.Windows.Forms.Label();
+            this.labelnotaadd = new System.Windows.Forms.Label();
+            this.labelnmecadd = new System.Windows.Forms.Label();
             this.id_uc_nota = new System.Windows.Forms.TextBox();
             this.nota_Nota = new System.Windows.Forms.TextBox();
             this.NMEC_nota = new System.Windows.Forms.TextBox();
@@ -76,10 +76,28 @@
             this.notaBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.id_falta = new System.Windows.Forms.TextBox();
-            this.tipoFalta = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.labelid_aval = new System.Windows.Forms.Label();
+            this.id_aval_nota = new System.Windows.Forms.TextBox();
+            this.filtros_btn = new System.Windows.Forms.Button();
+            this.hideBtn = new System.Windows.Forms.Button();
+            this.labelucfalta = new System.Windows.Forms.Label();
+            this.labeltipofalta = new System.Windows.Forms.Label();
+            this.labelnmecfalta = new System.Windows.Forms.Label();
+            this.ucfalta = new System.Windows.Forms.TextBox();
+            this.nmecfalta = new System.Windows.Forms.TextBox();
+            this.idavalfalta = new System.Windows.Forms.TextBox();
+            this.labelidaval = new System.Windows.Forms.Label();
+            this.tipoFaltaCombo = new System.Windows.Forms.ComboBox();
+            this.confirmFaltaBtn = new System.Windows.Forms.Button();
+            this.eliminarBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.comboBoxtipoFalta = new System.Windows.Forms.ComboBox();
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.confirmUpdateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -149,59 +167,68 @@
             this.listAlunos.TabIndex = 147;
             this.listAlunos.SelectedIndexChanged += new System.EventHandler(this.listAluno_SelectedIndexChanged);
             // 
-            // label14
+            // labelDepf
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 10F);
-            this.label14.Location = new System.Drawing.Point(5, 60);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 16);
-            this.label14.TabIndex = 158;
-            this.label14.Text = "Departamento";
+            this.labelDepf.AutoSize = true;
+            this.labelDepf.Font = new System.Drawing.Font("Arial", 10F);
+            this.labelDepf.Location = new System.Drawing.Point(0, 113);
+            this.labelDepf.Name = "labelDepf";
+            this.labelDepf.Size = new System.Drawing.Size(98, 16);
+            this.labelDepf.TabIndex = 158;
+            this.labelDepf.Text = "Departamento";
+            this.labelDepf.Visible = false;
             // 
             // comboBoxDep
             // 
             this.comboBoxDep.FormattingEnabled = true;
-            this.comboBoxDep.Location = new System.Drawing.Point(8, 79);
+            this.comboBoxDep.Location = new System.Drawing.Point(3, 132);
             this.comboBoxDep.Name = "comboBoxDep";
             this.comboBoxDep.Size = new System.Drawing.Size(91, 21);
             this.comboBoxDep.TabIndex = 157;
+            this.comboBoxDep.Visible = false;
+            this.comboBoxDep.SelectedIndexChanged += new System.EventHandler(this.comboBoxDep_SelectedIndexChanged);
             // 
             // comboBoxCurso
             // 
             this.comboBoxCurso.FormattingEnabled = true;
-            this.comboBoxCurso.Location = new System.Drawing.Point(8, 136);
+            this.comboBoxCurso.Location = new System.Drawing.Point(3, 189);
             this.comboBoxCurso.Name = "comboBoxCurso";
             this.comboBoxCurso.Size = new System.Drawing.Size(91, 21);
             this.comboBoxCurso.TabIndex = 156;
+            this.comboBoxCurso.Visible = false;
+            this.comboBoxCurso.SelectedIndexChanged += new System.EventHandler(this.comboBoxCurso_SelectedIndexChanged);
             // 
-            // label13
+            // labelcursof
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 10F);
-            this.label13.Location = new System.Drawing.Point(5, 117);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 16);
-            this.label13.TabIndex = 155;
-            this.label13.Text = "Curso";
+            this.labelcursof.AutoSize = true;
+            this.labelcursof.Font = new System.Drawing.Font("Arial", 10F);
+            this.labelcursof.Location = new System.Drawing.Point(0, 170);
+            this.labelcursof.Name = "labelcursof";
+            this.labelcursof.Size = new System.Drawing.Size(46, 16);
+            this.labelcursof.TabIndex = 155;
+            this.labelcursof.Text = "Curso";
+            this.labelcursof.Visible = false;
             // 
-            // label10
+            // labelturmaf
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 10F);
-            this.label10.Location = new System.Drawing.Point(5, 175);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 16);
-            this.label10.TabIndex = 154;
-            this.label10.Text = "ID Turma";
+            this.labelturmaf.AutoSize = true;
+            this.labelturmaf.Font = new System.Drawing.Font("Arial", 10F);
+            this.labelturmaf.Location = new System.Drawing.Point(0, 228);
+            this.labelturmaf.Name = "labelturmaf";
+            this.labelturmaf.Size = new System.Drawing.Size(65, 16);
+            this.labelturmaf.TabIndex = 154;
+            this.labelturmaf.Text = "ID Turma";
+            this.labelturmaf.Visible = false;
             // 
             // comboBoxTurma
             // 
             this.comboBoxTurma.FormattingEnabled = true;
-            this.comboBoxTurma.Location = new System.Drawing.Point(8, 194);
+            this.comboBoxTurma.Location = new System.Drawing.Point(3, 247);
             this.comboBoxTurma.Name = "comboBoxTurma";
             this.comboBoxTurma.Size = new System.Drawing.Size(91, 21);
             this.comboBoxTurma.TabIndex = 153;
+            this.comboBoxTurma.Visible = false;
+            this.comboBoxTurma.SelectedIndexChanged += new System.EventHandler(this.comboBoxTurma_SelectedIndexChanged);
             // 
             // listRegistos
             // 
@@ -298,76 +325,84 @@
             this.nomeAluno.Size = new System.Drawing.Size(162, 20);
             this.nomeAluno.TabIndex = 160;
             // 
-            // confirmBtn2
+            // notaBtn
             // 
-            this.confirmBtn2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmBtn2.Location = new System.Drawing.Point(438, 327);
-            this.confirmBtn2.Name = "confirmBtn2";
-            this.confirmBtn2.Size = new System.Drawing.Size(90, 28);
-            this.confirmBtn2.TabIndex = 176;
-            this.confirmBtn2.Text = "Adicionar Nota";
-            this.confirmBtn2.UseVisualStyleBackColor = true;
+            this.notaBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaBtn.Location = new System.Drawing.Point(375, 333);
+            this.notaBtn.Name = "notaBtn";
+            this.notaBtn.Size = new System.Drawing.Size(90, 28);
+            this.notaBtn.TabIndex = 176;
+            this.notaBtn.Text = "Adicionar Nota";
+            this.notaBtn.UseVisualStyleBackColor = true;
+            this.notaBtn.Click += new System.EventHandler(this.confirmBtn2_Click);
             // 
-            // button2
+            // faltaBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(438, 372);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 28);
-            this.button2.TabIndex = 177;
-            this.button2.Text = "Adicionar Falta";
-            this.button2.UseVisualStyleBackColor = true;
+            this.faltaBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.faltaBtn.Location = new System.Drawing.Point(375, 378);
+            this.faltaBtn.Name = "faltaBtn";
+            this.faltaBtn.Size = new System.Drawing.Size(90, 28);
+            this.faltaBtn.TabIndex = 177;
+            this.faltaBtn.Text = "Adicionar Falta";
+            this.faltaBtn.UseVisualStyleBackColor = true;
+            this.faltaBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
+            // labelucadd
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(606, 315);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 183;
-            this.label1.Text = "ID UC";
+            this.labelucadd.AutoSize = true;
+            this.labelucadd.Location = new System.Drawing.Point(543, 321);
+            this.labelucadd.Name = "labelucadd";
+            this.labelucadd.Size = new System.Drawing.Size(36, 13);
+            this.labelucadd.TabIndex = 183;
+            this.labelucadd.Text = "ID UC";
+            this.labelucadd.Visible = false;
             // 
-            // label2
+            // labelnotaadd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(660, 315);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 182;
-            this.label2.Text = "Nota";
+            this.labelnotaadd.AutoSize = true;
+            this.labelnotaadd.Location = new System.Drawing.Point(653, 321);
+            this.labelnotaadd.Name = "labelnotaadd";
+            this.labelnotaadd.Size = new System.Drawing.Size(30, 13);
+            this.labelnotaadd.TabIndex = 182;
+            this.labelnotaadd.Text = "Nota";
+            this.labelnotaadd.Visible = false;
             // 
-            // label3
+            // labelnmecadd
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(544, 315);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 181;
-            this.label3.Text = "NMEC";
+            this.labelnmecadd.AutoSize = true;
+            this.labelnmecadd.Location = new System.Drawing.Point(481, 321);
+            this.labelnmecadd.Name = "labelnmecadd";
+            this.labelnmecadd.Size = new System.Drawing.Size(38, 13);
+            this.labelnmecadd.TabIndex = 181;
+            this.labelnmecadd.Text = "NMEC";
+            this.labelnmecadd.Visible = false;
             // 
             // id_uc_nota
             // 
-            this.id_uc_nota.Location = new System.Drawing.Point(609, 331);
+            this.id_uc_nota.Location = new System.Drawing.Point(546, 337);
             this.id_uc_nota.Name = "id_uc_nota";
             this.id_uc_nota.ReadOnly = true;
             this.id_uc_nota.Size = new System.Drawing.Size(45, 20);
             this.id_uc_nota.TabIndex = 180;
+            this.id_uc_nota.Visible = false;
             // 
             // nota_Nota
             // 
-            this.nota_Nota.Location = new System.Drawing.Point(660, 331);
+            this.nota_Nota.Location = new System.Drawing.Point(653, 337);
             this.nota_Nota.Name = "nota_Nota";
             this.nota_Nota.ReadOnly = true;
-            this.nota_Nota.Size = new System.Drawing.Size(50, 20);
+            this.nota_Nota.Size = new System.Drawing.Size(91, 20);
             this.nota_Nota.TabIndex = 179;
+            this.nota_Nota.Visible = false;
             // 
             // NMEC_nota
             // 
-            this.NMEC_nota.Location = new System.Drawing.Point(547, 331);
+            this.NMEC_nota.Location = new System.Drawing.Point(484, 337);
             this.NMEC_nota.Name = "NMEC_nota";
             this.NMEC_nota.ReadOnly = true;
             this.NMEC_nota.Size = new System.Drawing.Size(56, 20);
             this.NMEC_nota.TabIndex = 178;
+            this.NMEC_nota.Visible = false;
             // 
             // label4
             // 
@@ -510,14 +545,6 @@
             this.id_falta.Size = new System.Drawing.Size(56, 20);
             this.id_falta.TabIndex = 205;
             // 
-            // tipoFalta
-            // 
-            this.tipoFalta.Location = new System.Drawing.Point(667, 133);
-            this.tipoFalta.Name = "tipoFalta";
-            this.tipoFalta.ReadOnly = true;
-            this.tipoFalta.Size = new System.Drawing.Size(96, 20);
-            this.tipoFalta.TabIndex = 203;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -548,16 +575,239 @@
             this.label18.TabIndex = 210;
             this.label18.Text = "ID Falta";
             // 
+            // confirmBtn
+            // 
+            this.confirmBtn.Font = new System.Drawing.Font("Arial", 11F);
+            this.confirmBtn.Location = new System.Drawing.Point(375, 333);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(90, 28);
+            this.confirmBtn.TabIndex = 211;
+            this.confirmBtn.Text = "Confirmar";
+            this.confirmBtn.UseVisualStyleBackColor = true;
+            this.confirmBtn.Visible = false;
+            this.confirmBtn.Click += new System.EventHandler(this.notaBtn_Click);
+            // 
+            // labelid_aval
+            // 
+            this.labelid_aval.AutoSize = true;
+            this.labelid_aval.Location = new System.Drawing.Point(597, 321);
+            this.labelid_aval.Name = "labelid_aval";
+            this.labelid_aval.Size = new System.Drawing.Size(45, 13);
+            this.labelid_aval.TabIndex = 213;
+            this.labelid_aval.Text = "ID_Aval";
+            this.labelid_aval.Visible = false;
+            // 
+            // id_aval_nota
+            // 
+            this.id_aval_nota.Location = new System.Drawing.Point(597, 337);
+            this.id_aval_nota.Name = "id_aval_nota";
+            this.id_aval_nota.ReadOnly = true;
+            this.id_aval_nota.Size = new System.Drawing.Size(50, 20);
+            this.id_aval_nota.TabIndex = 212;
+            this.id_aval_nota.Visible = false;
+            // 
+            // filtros_btn
+            // 
+            this.filtros_btn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filtros_btn.Location = new System.Drawing.Point(4, 69);
+            this.filtros_btn.Name = "filtros_btn";
+            this.filtros_btn.Size = new System.Drawing.Size(90, 28);
+            this.filtros_btn.TabIndex = 214;
+            this.filtros_btn.Text = "Filtros";
+            this.filtros_btn.UseVisualStyleBackColor = true;
+            this.filtros_btn.Click += new System.EventHandler(this.filtros_btn_Click);
+            // 
+            // hideBtn
+            // 
+            this.hideBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideBtn.Location = new System.Drawing.Point(3, 68);
+            this.hideBtn.Name = "hideBtn";
+            this.hideBtn.Size = new System.Drawing.Size(90, 28);
+            this.hideBtn.TabIndex = 215;
+            this.hideBtn.Text = "Esconder";
+            this.hideBtn.UseVisualStyleBackColor = true;
+            this.hideBtn.Visible = false;
+            this.hideBtn.Click += new System.EventHandler(this.hideBtn_Click);
+            // 
+            // labelucfalta
+            // 
+            this.labelucfalta.AutoSize = true;
+            this.labelucfalta.Location = new System.Drawing.Point(543, 370);
+            this.labelucfalta.Name = "labelucfalta";
+            this.labelucfalta.Size = new System.Drawing.Size(36, 13);
+            this.labelucfalta.TabIndex = 221;
+            this.labelucfalta.Text = "ID UC";
+            this.labelucfalta.Visible = false;
+            // 
+            // labeltipofalta
+            // 
+            this.labeltipofalta.AutoSize = true;
+            this.labeltipofalta.Location = new System.Drawing.Point(650, 370);
+            this.labeltipofalta.Name = "labeltipofalta";
+            this.labeltipofalta.Size = new System.Drawing.Size(54, 13);
+            this.labeltipofalta.TabIndex = 220;
+            this.labeltipofalta.Text = "Tipo Falta";
+            this.labeltipofalta.Visible = false;
+            // 
+            // labelnmecfalta
+            // 
+            this.labelnmecfalta.AutoSize = true;
+            this.labelnmecfalta.Location = new System.Drawing.Point(481, 370);
+            this.labelnmecfalta.Name = "labelnmecfalta";
+            this.labelnmecfalta.Size = new System.Drawing.Size(38, 13);
+            this.labelnmecfalta.TabIndex = 219;
+            this.labelnmecfalta.Text = "NMEC";
+            this.labelnmecfalta.Visible = false;
+            // 
+            // ucfalta
+            // 
+            this.ucfalta.Location = new System.Drawing.Point(546, 386);
+            this.ucfalta.Name = "ucfalta";
+            this.ucfalta.ReadOnly = true;
+            this.ucfalta.Size = new System.Drawing.Size(45, 20);
+            this.ucfalta.TabIndex = 218;
+            this.ucfalta.Visible = false;
+            // 
+            // nmecfalta
+            // 
+            this.nmecfalta.Location = new System.Drawing.Point(484, 386);
+            this.nmecfalta.Name = "nmecfalta";
+            this.nmecfalta.ReadOnly = true;
+            this.nmecfalta.Size = new System.Drawing.Size(56, 20);
+            this.nmecfalta.TabIndex = 216;
+            this.nmecfalta.Visible = false;
+            // 
+            // idavalfalta
+            // 
+            this.idavalfalta.Location = new System.Drawing.Point(597, 386);
+            this.idavalfalta.Name = "idavalfalta";
+            this.idavalfalta.ReadOnly = true;
+            this.idavalfalta.Size = new System.Drawing.Size(50, 20);
+            this.idavalfalta.TabIndex = 222;
+            this.idavalfalta.Visible = false;
+            // 
+            // labelidaval
+            // 
+            this.labelidaval.AutoSize = true;
+            this.labelidaval.Location = new System.Drawing.Point(597, 370);
+            this.labelidaval.Name = "labelidaval";
+            this.labelidaval.Size = new System.Drawing.Size(45, 13);
+            this.labelidaval.TabIndex = 223;
+            this.labelidaval.Text = "ID_Aval";
+            this.labelidaval.Visible = false;
+            // 
+            // tipoFaltaCombo
+            // 
+            this.tipoFaltaCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoFaltaCombo.FormattingEnabled = true;
+            this.tipoFaltaCombo.Items.AddRange(new object[] {
+            "Justificada",
+            "Injustificada"});
+            this.tipoFaltaCombo.Location = new System.Drawing.Point(653, 385);
+            this.tipoFaltaCombo.Name = "tipoFaltaCombo";
+            this.tipoFaltaCombo.Size = new System.Drawing.Size(91, 21);
+            this.tipoFaltaCombo.TabIndex = 224;
+            this.tipoFaltaCombo.Visible = false;
+            // 
+            // confirmFaltaBtn
+            // 
+            this.confirmFaltaBtn.Font = new System.Drawing.Font("Arial", 11F);
+            this.confirmFaltaBtn.Location = new System.Drawing.Point(375, 378);
+            this.confirmFaltaBtn.Name = "confirmFaltaBtn";
+            this.confirmFaltaBtn.Size = new System.Drawing.Size(90, 28);
+            this.confirmFaltaBtn.TabIndex = 225;
+            this.confirmFaltaBtn.Text = "Confirmar";
+            this.confirmFaltaBtn.UseVisualStyleBackColor = true;
+            this.confirmFaltaBtn.Visible = false;
+            this.confirmFaltaBtn.Click += new System.EventHandler(this.confirmFaltaBtn_Click);
+            // 
+            // eliminarBtn
+            // 
+            this.eliminarBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminarBtn.Location = new System.Drawing.Point(552, 191);
+            this.eliminarBtn.Name = "eliminarBtn";
+            this.eliminarBtn.Size = new System.Drawing.Size(90, 44);
+            this.eliminarBtn.TabIndex = 226;
+            this.eliminarBtn.Text = "Eliminar Registo";
+            this.eliminarBtn.UseVisualStyleBackColor = true;
+            this.eliminarBtn.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.Location = new System.Drawing.Point(666, 191);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(90, 44);
+            this.updateBtn.TabIndex = 227;
+            this.updateBtn.Text = "Update Registo";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // comboBoxtipoFalta
+            // 
+            this.comboBoxtipoFalta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxtipoFalta.Enabled = false;
+            this.comboBoxtipoFalta.FormattingEnabled = true;
+            this.comboBoxtipoFalta.Items.AddRange(new object[] {
+            "Justificada",
+            "Injustificada"});
+            this.comboBoxtipoFalta.Location = new System.Drawing.Point(666, 134);
+            this.comboBoxtipoFalta.Name = "comboBoxtipoFalta";
+            this.comboBoxtipoFalta.Size = new System.Drawing.Size(91, 21);
+            this.comboBoxtipoFalta.TabIndex = 228;
+            // 
+            // cancelarBtn
+            // 
+            this.cancelarBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarBtn.Location = new System.Drawing.Point(552, 215);
+            this.cancelarBtn.Name = "cancelarBtn";
+            this.cancelarBtn.Size = new System.Drawing.Size(90, 44);
+            this.cancelarBtn.TabIndex = 229;
+            this.cancelarBtn.Text = "Cancelar";
+            this.cancelarBtn.UseVisualStyleBackColor = true;
+            this.cancelarBtn.Visible = false;
+            this.cancelarBtn.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // confirmUpdateBtn
+            // 
+            this.confirmUpdateBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmUpdateBtn.Location = new System.Drawing.Point(666, 215);
+            this.confirmUpdateBtn.Name = "confirmUpdateBtn";
+            this.confirmUpdateBtn.Size = new System.Drawing.Size(90, 44);
+            this.confirmUpdateBtn.TabIndex = 230;
+            this.confirmUpdateBtn.Text = "Confirmar";
+            this.confirmUpdateBtn.UseVisualStyleBackColor = true;
+            this.confirmUpdateBtn.Visible = false;
+            this.confirmUpdateBtn.Click += new System.EventHandler(this.confirmUpdateBtn_Click);
+            // 
             // FormRegistos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.confirmUpdateBtn);
+            this.Controls.Add(this.cancelarBtn);
+            this.Controls.Add(this.comboBoxtipoFalta);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.eliminarBtn);
+            this.Controls.Add(this.confirmFaltaBtn);
+            this.Controls.Add(this.tipoFaltaCombo);
+            this.Controls.Add(this.labelidaval);
+            this.Controls.Add(this.idavalfalta);
+            this.Controls.Add(this.labelucfalta);
+            this.Controls.Add(this.labeltipofalta);
+            this.Controls.Add(this.labelnmecfalta);
+            this.Controls.Add(this.ucfalta);
+            this.Controls.Add(this.nmecfalta);
+            this.Controls.Add(this.hideBtn);
+            this.Controls.Add(this.filtros_btn);
+            this.Controls.Add(this.labelid_aval);
+            this.Controls.Add(this.id_aval_nota);
+            this.Controls.Add(this.confirmBtn);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.id_falta);
-            this.Controls.Add(this.tipoFalta);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.id_nota);
             this.Controls.Add(this.notaBox);
@@ -573,14 +823,14 @@
             this.Controls.Add(this.nmecRegisto);
             this.Controls.Add(this.id_registo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelucadd);
+            this.Controls.Add(this.labelnotaadd);
+            this.Controls.Add(this.labelnmecadd);
             this.Controls.Add(this.id_uc_nota);
             this.Controls.Add(this.nota_Nota);
             this.Controls.Add(this.NMEC_nota);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.confirmBtn2);
+            this.Controls.Add(this.faltaBtn);
+            this.Controls.Add(this.notaBtn);
             this.Controls.Add(this.labelCurso);
             this.Controls.Add(this.labelHorario);
             this.Controls.Add(this.labelNMEC);
@@ -592,11 +842,11 @@
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.nomeAluno);
             this.Controls.Add(this.listRegistos);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelDepf);
             this.Controls.Add(this.comboBoxDep);
             this.Controls.Add(this.comboBoxCurso);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelcursof);
+            this.Controls.Add(this.labelturmaf);
             this.Controls.Add(this.comboBoxTurma);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.n_Alunos);
@@ -622,11 +872,11 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label labelRegistos;
         private System.Windows.Forms.ListBox listAlunos;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelDepf;
         private System.Windows.Forms.ComboBox comboBoxDep;
         private System.Windows.Forms.ComboBox comboBoxCurso;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelcursof;
+        private System.Windows.Forms.Label labelturmaf;
         private System.Windows.Forms.ComboBox comboBoxTurma;
         private System.Windows.Forms.ListBox listRegistos;
         private System.Windows.Forms.Label labelCurso;
@@ -639,11 +889,11 @@
         private System.Windows.Forms.TextBox emailAluno;
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.TextBox nomeAluno;
-        private System.Windows.Forms.Button confirmBtn2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button notaBtn;
+        private System.Windows.Forms.Button faltaBtn;
+        private System.Windows.Forms.Label labelucadd;
+        private System.Windows.Forms.Label labelnotaadd;
+        private System.Windows.Forms.Label labelnmecadd;
         private System.Windows.Forms.TextBox id_uc_nota;
         private System.Windows.Forms.TextBox nota_Nota;
         private System.Windows.Forms.TextBox NMEC_nota;
@@ -663,9 +913,27 @@
         private System.Windows.Forms.TextBox notaBox;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox id_falta;
-        private System.Windows.Forms.TextBox tipoFalta;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button confirmBtn;
+        private System.Windows.Forms.Label labelid_aval;
+        private System.Windows.Forms.TextBox id_aval_nota;
+        private System.Windows.Forms.Button filtros_btn;
+        private System.Windows.Forms.Button hideBtn;
+        private System.Windows.Forms.Label labelucfalta;
+        private System.Windows.Forms.Label labeltipofalta;
+        private System.Windows.Forms.Label labelnmecfalta;
+        private System.Windows.Forms.TextBox ucfalta;
+        private System.Windows.Forms.TextBox nmecfalta;
+        private System.Windows.Forms.TextBox idavalfalta;
+        private System.Windows.Forms.Label labelidaval;
+        private System.Windows.Forms.ComboBox tipoFaltaCombo;
+        private System.Windows.Forms.Button confirmFaltaBtn;
+        private System.Windows.Forms.Button eliminarBtn;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.ComboBox comboBoxtipoFalta;
+        private System.Windows.Forms.Button cancelarBtn;
+        private System.Windows.Forms.Button confirmUpdateBtn;
     }
 }

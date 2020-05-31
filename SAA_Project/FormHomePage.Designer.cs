@@ -179,7 +179,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(108, 47);
             this.button8.TabIndex = 14;
-            this.button8.Text = "Notas";
+            this.button8.Text = "Registos";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 

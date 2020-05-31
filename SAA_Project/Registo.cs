@@ -13,6 +13,13 @@ namespace SAA_Project
         private String _ID_UC;
         private String _ID_Aval;
 
+        private String _ID_Nota;
+        private String _Nota;
+        //private String _ID_Registo;
+        private String _ID_Falta;
+        private String _tipoFalta;
+
+
         public String ID_Registo
         {
             get { return _ID_Registo; }
@@ -56,6 +63,40 @@ namespace SAA_Project
         {
             get { return _ID_Aval; }
             set { _ID_Aval = value; }
+        }
+
+
+        //outros
+
+        public String ID_Nota
+        {
+            get { return _ID_Nota; }
+            set
+            {
+                if (value == null | String.IsNullOrEmpty(value))
+                {
+                    throw new Exception("ID Nota necessário!");
+                }
+                _ID_Nota = value;
+            }
+        }
+
+        public String Nota
+        {
+            get { return _Nota; }
+            set { _Nota = value; }
+        }
+
+        public String ID_Falta
+        {
+            get { return _ID_Falta; }
+            set { _ID_Falta = value; }
+        }
+
+        public String tipoFalta
+        {
+            get { return _tipoFalta; }
+            set { _tipoFalta = value; }
         }
 
 
